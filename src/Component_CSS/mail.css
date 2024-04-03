@@ -1,0 +1,70 @@
+.subscribe-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+  
+  .subscribe-container p {
+    color: black;
+    letter-spacing: 2px;
+  }
+  
+  input[type='email'] {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 50px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: cadetblue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: whitesmoke;
+    border-bottom: 3px solid cadetblue;
+    letter-spacing: 2px;
+    color: black;
+  }
+  
+  /* Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .subscribe-container {
+    animation: fadeInUp 0.5s ease;
+    margin-bottom: 200px;
+    color: black;
+    width: 100%;
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 600px) {
+    .subscribe-container {
+      width: 300px;
+    }
+
+    input[placeholder='Enter your email'] {
+      font-size: 9px;
+    }
+  }
+  
+  
+  

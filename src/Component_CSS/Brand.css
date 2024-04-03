@@ -1,0 +1,15 @@
+.spon {
+    background-color:whitesmoke;
+    margin-bottom: 180px;
+    display: block;
+    letter-spacing: 200px;
+  }
+  .spon img{
+    padding: 50px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .spon img {
+      padding: 10px;
+    }
+  }

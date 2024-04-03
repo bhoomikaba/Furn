@@ -1,0 +1,17 @@
+.slide img {
+    height: 750px;
+    width: 100%;
+    opacity: 0.7;
+    position: relative;
+    z-index: -1;
+    top: 0%;
+}
+
+
+@media (max-width :768px) {
+    .slide img {
+        height: 350px;
+        opacity: 1;
+    }
+}
+
