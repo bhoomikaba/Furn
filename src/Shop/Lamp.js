@@ -1,5 +1,6 @@
-import React from 'react';
-import '../Shop_css/lamp.css';
+import React, { useState } from 'react';
+// import '../Shop_css/lamp.css';
+import ProductDetails from './ProductDetails';
 import lamp0 from '../image/lamps/lamp0.jpeg';
 import lamp1 from '../image/lamps/lamp1.jpeg';
 import lamp2 from '../image/lamps/lamp2.jpeg';
@@ -14,337 +15,105 @@ import lamp11 from '../image/lamps/lamp11.jpeg';
 import lamp12 from '../image/lamps/lamp12.jpeg';
 
 export default function Lamp() {
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [quantity, setQuantity] = useState(1);
 
-  const handleCardClick = (e) => {
-    e.preventDefault();
+    const handleCardClick = (product) => {
+        setSelectedProduct(product);
+    };
 
-    const card = e.currentTarget;
-    const isShowing = card.classList.contains("show");
+    const increaseQuantity = () => {
+        setQuantity(quantity + 1);
+    };
 
-    const cardsContainer = document.querySelector("div.cards");
-    const showingCards = document.querySelectorAll("div.card.show");
-
-    if (cardsContainer.classList.contains("showing")) {
-        // A card is already in view
-        showingCards.forEach(showingCard => showingCard.classList.remove("show"));
-
-        if (!isShowing) {
-            // This card isn't showing - get in with it
-            const highestZIndex = Math.max(...Array.from(showingCards).map(c => parseInt(window.getComputedStyle(c).getPropertyValue('z-index')), 10));
-            card.style.zIndex = highestZIndex + 1;
-            card.classList.add("show");
-        } else {
-            // This card was showing - reset the grid
-            cardsContainer.classList.remove("showing");
+    const decreaseQuantity = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
         }
-    } else {
-        // No cards in view
-        cardsContainer.classList.add("showing");
-        const highestZIndex = Math.max(...Array.from(showingCards).map(c => parseInt(window.getComputedStyle(c).getPropertyValue('z-index')), 10));
-        card.style.zIndex = highestZIndex + 1;
-        card.classList.add("show");
-    }
-}; 
+    };
+
+    const calculatePrice = () => {
+        if (selectedProduct) {
+            return parseFloat(selectedProduct.price.slice(1)) * quantity;
+        }
+        return 0;
+    };
+
+    const products = [
+        { id: 1, image: lamp0, name: 'Timeless Comfort Couch', price: '$123.0', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 2, image: lamp1, name: 'Urban Elegance Loveseat', price: '$111.11',description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 3, image: lamp11, name: 'Luxury Lounge Seating', price: '$1207.03', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 4, image: lamp12, name: 'Plush Lounge Settee', price: '$1995.0', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 5, image: lamp2, name: 'Velvet Dream Sofa', price: '$20.00', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 6, image: lamp3, name: 'Cozy Corner Charms', price: '$77.77', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room'},
+
+        { id: 7, image: lamp4, name: 'Timeless Comfort Couch', price: '$123.0', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 8, image: lamp5, name: 'Urban Elegance Loveseat', price: '$111.11',description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 9, image: lamp6, name: 'Luxury Lounge Seating', price: '$1207.03', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 10, image: lamp7, name: 'Plush Lounge Settee', price: '$1995.0', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 11, image: lamp8, name: 'Velvet Dream Sofa', price: '$20.00', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+
+        { id: 12, image: lamp9, name: 'Cozy Corner Charms', price: '$77.77', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room'}
+
+
+    ];
 
 
   return (
     <div>
-         <div>
-        <h1 className='h_head'>LAMP COLLECTION</h1>
-        <h5 className='h_title'>Most Selling & Trending Lamps</h5>
+            {!selectedProduct && (
+                <div>
+                    <h1 className='h_head'>LAMP COLLECTION</h1>
+                    <h5 className='h_title'>Most Selling & Trending Sofas</h5>
 
-        <div className="cards">
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp12} alt="mountain" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Glowing Style Statements
-                        <small>$123.0</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-                    
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
+                    <div className="cards">
+                        {products.map(product => (
+                            <div className="card" key={product.id} onClick={() => handleCardClick(product)}>
+                                <div className="card__image-holder">
+                                    <img className="card__image" src={product.image} alt={product.name} />
+                                </div>
+                                <div className="card-title">
+                                    <a href="/" className="toggle-info btn">
+                                        <span className="left"></span>
+                                        <span className="right"></span>
+                                    </a>
+                                    <h2>
+                                        {product.name}
+                                        <small>{product.price}</small>
+                                    </h2>
+                                    
+                                </div>
+                                <div className="card-flap flap1">
+                                    <div className="card-flap flap2">
+                                        <div className="card-actions">
+                                            <a href="/" className="btn">Add to Cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-            </div>
+            )}
 
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp11} alt="field" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Lighting Up Elegance
-                        <small>$111.11</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp9} alt="water" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Radiant Decor Accents
-                        <small>$1207.03</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-                   
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp8} alt="water" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Chic Illumination 
-                        <small>$1995.0</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-                    
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp7} alt="water" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Shine in Style
-                        <small>$20.00</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-                   
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp6} alt="field" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Illuminate with Grace
-                        <small>$111.11</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp4} alt="field" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Glamour in Every Glow
-                        <small>$111.11</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp0} alt="field" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Lighting Inspired Spaces
-                        <small>$111.11</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp1} alt="field" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Elevate with Light
-                        <small>$111.11</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp5} alt="field" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Lamps of Distinction
-                        <small>$111.11</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp3} alt="field" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Illuminate Your World
-                        <small>$111.11</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div className="card" onClick={handleCardClick}>
-                <div className="card__image-holder">
-                    <img className="card__image" src={lamp2} alt="water" />
-                </div>
-                <div className="card-title">
-                    <a href="/" className="toggle-info btn">
-                        <span className="left"></span>
-                        <span className="right"></span>
-                    </a>
-                    <h2>
-                    Lighting, Redefined
-                        <small>$77.77</small>
-                    </h2>
-                </div>
-                <div className="card-flap flap1">
-                   
-                    <div className="card-flap flap2">
-                        <div className="card-actions">
-                            <a href="/" className="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {selectedProduct && (
+                <ProductDetails 
+                    product={selectedProduct}
+                    quantity={quantity}
+                    increaseQuantity={increaseQuantity}
+                    decreaseQuantity={decreaseQuantity}
+                    calculatePrice={calculatePrice}
+                />
+            )}
         </div>
-    </div>
-
-    </div>
-  )
-}
+    );  
+            }

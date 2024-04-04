@@ -13,6 +13,7 @@ import Chair from './Shop/Chair';
 import Table from './Shop/Table';
 import Lamp from './Shop/Lamp';
 import Page from './404';
+import RegistrationForm from './Shop/Form';
 
 
 
@@ -24,7 +25,7 @@ function App() {
         <Routes>
            <Route path='/' element={<Home/>}/>
            <Route path='/About' element={<About/>}/>
-           <Route path='/Product' element={<Product/>}/>
+           <Route  element={<Product/>}/>
                        <Route path='/Sofa' element={<Sofa/>}/>  
                        <Route path='/Bed' element={<Bed/>}/>  
                        <Route path='/Chair' element={<Chair/>}/>  
@@ -32,6 +33,7 @@ function App() {
                        <Route path='/Lamp' element={<Lamp/>}/>
            <Route path='/Contact' element={<Contact/>}/> 
            <Route path="*" element={<Page />}/>
+           <Route path="/Form" element={<RegistrationForm />}/>
          </Routes>
          <Foot/>
       </Router>

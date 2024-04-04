@@ -65,3 +65,14 @@
     font-size: 18px;
     color: #555;
 }
+
+.error_h1 {
+    text-align: center;
+    margin-top: 500px;
+}
+
+.error_h3 {
+    text-align: center;
+    /* margin-top: 500px; */
+ }
+

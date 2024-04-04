@@ -1,0 +1,115 @@
+.container2 {
+    margin-bottom: 50px;
+}
+
+.container2 {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f5deb3; /* Lighter beige background color */
+    box-shadow: 0px 0px 20px rgba(139, 69, 19, 0.4); /* Darker brown shadow */
+    animation: shadow-pulse 2s infinite alternate;
+  }
+  
+  @keyframes shadow-pulse {
+    0% {
+      box-shadow: 0px 0px 20px rgba(139, 69, 19, 0.4);
+    }
+    100% {
+      box-shadow: 0px 0px 30px rgba(139, 69, 19, 0.6);
+    }
+  }
+  
+  .container2 h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8b4513; /* Dark brown text color */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-weight: bold;
+    color: #8b4513;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    border-color: #8b4513;
+    box-shadow: none;
+  }
+  
+  .btn-primary {
+    background-color: #cd853f; /* Lighter brown button color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #8b4513; /* Dark brown hover color */
+  }
+  
+  .input-group-text {
+    background-color: #8b4513;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    color: #fff;
+  }
+  
+  .input-group-text i {
+    font-size: 18px;
+  }
+  
+  .input-group-prepend,
+  .input-group-append {
+    margin-bottom: 20px;
+  }
+  
+  /* Animation for input fields */
+  @keyframes input-animation {
+    0% {
+      transform: translateX(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .form-control {
+    animation: input-animation 0.5s ease-in-out forwards;
+    opacity: 0;
+  }
+  
+  /* Animation for submit button */
+  @keyframes button-animation {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .btn-primary {
+    animation: button-animation 0.5s ease-in-out forwards;
+    opacity: 0;
+  }
+
+  .order {
+    display: none;
+  }
+
+  .order:active {
+    display: block;
+  }
+  

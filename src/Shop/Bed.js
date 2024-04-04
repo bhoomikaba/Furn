@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Shop_css/bed.css';
+// import '../Shop_css/bed.css';
 import bed1 from '../image/beds/bed1.jpeg';
 import bed2 from '../image/beds/bed2.jpeg';
 import bed4 from '../image/beds/bed4.jpeg';
@@ -34,11 +34,11 @@ export default function Bed() {
     };
 
     const products = [
-        { id: 1, image: bed1, name: 'Timeless Comfort Couch', price: '$123.0', description: 'Grandiose Mahogany Carved Canopy Bed: A Majestic Statement of Timeless Luxury and Comfort', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+        { id: 1, image: bed1, name: 'Timeless Comfort Couch', price: '$123.0', description: 'DreamHaven Retreat: A cozy sanctuary for restful slumber beneath the stars of imagination', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
-        { id: 2, image: bed2, name: 'Urban Elegance Loveseat', price: '$111.11',description: 'Plush Upholstered Wingback Bedframe: Offering Serene Nights Wrapped in Contemporary Elegance', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+        { id: 2, image: bed2, name: 'Urban Elegance Loveseat', price: '$111.11',description: 'Serenity Nest: Where tranquility and comfort intertwine, cradling you into peaceful dreams', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
-        { id: 3, image: bed4, name: 'Luxury Lounge Seating', price: '$1207.03', description: 'Serene Oasis Platform Bed: Crafted for Tranquility, Elevating Your Bedroom into a Haven', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+        { id: 3, image: bed4, name: 'Luxury Lounge Seating', price: '$1207.03', description: 'CloudCradle Haven: Drift into dreamland on a soft sea of heavenly comfort and relaxation', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
         { id: 4, image: bed6, name: 'Plush Lounge Settee', price: '$1995.0', description: 'Exquisite Victorian Four-Poster Bed: An Emblem of Classic Sophistication and Regal Charm for Your Bedroom Retreat' , brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
@@ -50,7 +50,7 @@ export default function Bed() {
         <div>
             {!selectedProduct && (
                 <div>
-                    <h1 className='h_head'>SOFA COLLECTION</h1>
+                    <h1 className='h_head'>BED COLLECTION</h1>
                     <h5 className='h_title'>Most Selling & Trending Sofas</h5>
                     
                     <div className="cards">

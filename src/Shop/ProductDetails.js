@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import '../Shop_css/sofa.css';
+import { NavLink } from "react-router-dom";
 import Category from '../Component/Category';
+import Form from '../Shop/Form';
 
 export default function ProductDetails({ product, quantity, increaseQuantity, decreaseQuantity, calculatePrice, detail })
 
 {
+    const [isFormVisible, setIsFormVisible] = useState(false);
+
+    const handleClick = () => {
+        setIsFormVisible(true);
+    };
+
+    //const [click, setClick] = useState(false);
+
+  //const handleClick = () => setClick(!click);
 
     const [reviewText, setReviewText] = useState('');
     const [userName, setUserName] = useState('');
@@ -118,13 +129,13 @@ export default function ProductDetails({ product, quantity, increaseQuantity, de
                 <div className="review-section">
                     <h3>Customer Reviews</h3>
                     <hr />
-                    <div className="reviews">
+                    {/* <div className="reviews">
                         {reviews.map((review, index) => (
                             <div key={index} className="review">
                                 <p className='review'>{review.text} <p className='an'> ~ By {review.user} on {review.date}</p> <hr /></p>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                     <textarea placeholder="Write your review..." value={reviewText} onChange={(e) => setReviewText(e.target.value)} />
                     <input type="text" placeholder="Your Name" value={userName} onChange={(e) => setUserName(e.target.value)} />
                     <button className='sub' onClick={submitReview}>Submit Review</button>
@@ -132,13 +143,29 @@ export default function ProductDetails({ product, quantity, increaseQuantity, de
                     <hr />
 
                 <div className="button-container">
-                    <button className='cont'>Continue Shopping</button>
+                    <NavLink
+                    exact
+                    to="/Form"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={handleClick}> 
+                        <button className='cont'>Continue Shopping</button>
+                    </NavLink>
                 </div>
             </div>
         </div>
-        <Category/>
         
+         { <Form quantity={quantity} />}
 
+        <Category/>
+
+        <NavLink
+                exact
+                to="/contact"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              ></NavLink>
         </>
     );
 };

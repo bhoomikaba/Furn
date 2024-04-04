@@ -1,6 +1,7 @@
 // Sofa.js
 import React, { useState } from 'react';
 import '../Shop_css/sofa.css';
+import RegistrationForm from '../Shop/Form';
 import ProductDetails from './ProductDetails'; // Import ProductDetails component
 import sofa6 from '../image/sofas/sofa6.jpeg';
 import sofa4 from '../image/sofas/sofa4.jpeg';
@@ -96,6 +97,15 @@ export default function Sofa() {
                     calculatePrice={calculatePrice}
                 />
             )}
+
+{selectedProduct && (
+                <RegistrationForm 
+                    
+                    quantity={quantity}
+                   
+                />
+            )}
+
         </div>
     );
 }
