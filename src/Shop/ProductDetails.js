@@ -2,20 +2,66 @@ import React, { useState } from 'react';
 import '../Shop_css/sofa.css';
 import { NavLink } from "react-router-dom";
 import Category from '../Component/Category';
-import Form from '../Shop/Form';
+import {Form,  Button } from 'react-bootstrap';
+import ConfirmationModal from './ConfirmationModal';
 
-export default function ProductDetails({ product, quantity, increaseQuantity, decreaseQuantity, calculatePrice, detail })
+export default function ProductDetails({orderedItems, product, quantity, increaseQuantity, decreaseQuantity, calculatePrice, detail })
 
 {
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+
+  const handlePlaceOrderClick = () => {
+    setShowConfirmationModal(true);
+  };
+  
+
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        phoneNumber: '',
+        email: '',
+        pinCode: '',
+        state: '',
+        city: '',
+        houseNo: '',
+        area: '',
+      });
+
+      
+    
+      // Calculated values for delivery charges and discount
+      const deliveryCharges = 10; // Example delivery charges
+      const discount = 200; // Example discount
+      const gstAmount = 2000; 
+      const gstRate = 8;
+      
+      const totalPrice = ((+product.price * quantity) + gstAmount + deliveryCharges - discount).toFixed(2);
+   
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+          ...formData,
+          [name]: value,
+        });
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // We can perform form validation here
+        console.log(formData);
+      };
+
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const [isOrder, setIsOrder] = useState(false);
 
     const handleClick = () => {
         setIsFormVisible(true);
     };
 
-    //const [click, setClick] = useState(false);
-
-  //const handleClick = () => setClick(!click);
+    const handleClick2 = () => {
+      setIsFormVisible(false);
+      setIsOrder(true);
+  };
 
     const [reviewText, setReviewText] = useState('');
     const [userName, setUserName] = useState('');
@@ -37,7 +83,7 @@ export default function ProductDetails({ product, quantity, increaseQuantity, de
 
     return (
         <>
-        <div className="product-details">
+        <div className="product-details" style={{ display: isFormVisible ? 'none' : 'block' }}>
             <div className='flex'>
 
             <div className='details'>
@@ -47,7 +93,7 @@ export default function ProductDetails({ product, quantity, increaseQuantity, de
             <div className='productp'>
                     <b><h2>{product.description}</h2></b>
                     <hr />
-                    <div className='price'><b><span> Price <b><h2>{product.price}</h2></b> </span></b></div>
+                    <div className='price'><b><span> Price <b><h2> ${product.price}</h2></b> </span></b></div>
                     <hr />
                     <div className='buttons'>
                         <b><span>Quantity : </span></b>
@@ -65,6 +111,7 @@ export default function ProductDetails({ product, quantity, increaseQuantity, de
             <div className='det'>
                 <hr />
                 <h3>Product Details</h3>
+                
                 <hr/>
 
                 <div className='pr'>
@@ -96,6 +143,7 @@ export default function ProductDetails({ product, quantity, increaseQuantity, de
                        
                         <b><h5> Room Type : <span> {product.room}</span> </h5></b>
                         
+
                     </div>
                 </div>
                 <hr />
@@ -142,30 +190,155 @@ export default function ProductDetails({ product, quantity, increaseQuantity, de
                 </div>
                     <hr />
 
-                <div className="button-container">
-                    <NavLink
-                    exact
-                    to="/Form"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={handleClick}> 
-                        <button className='cont'>Continue Shopping</button>
-                    </NavLink>
+                    <div className="button-container">
+                    <button className='cont' onClick={handleClick}>Buy Now</button>
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
         
-         { <Form quantity={quantity} />}
+         {/* Form Component */}
+    
+    <div className='form'>
+    
+    <div className="container2" style={{ display: isFormVisible ? 'block' : 'none' }}>
+      <h2>Enter Your Details</h2>
+      
+      
+      <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="firstName">
+          <Form.Label>First Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter first name"
+            className='myinput'
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="lastName">
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter last name"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="phoneNumber">
+          <Form.Label>Phone Number</Form.Label>
+          <Form.Control
+            type="tel"
+            placeholder="Enter phone number"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+          />
+        </Form.Group>
 
-        <Category/>
+        <Form.Group className= "mb-3" controlId= "email">
+          <Form.Label>E-Mail</Form.Label>
+          <Form.Control
+          type='mail'
+          placeholder='Enter Your Email..'
+          name='email'
+          value={formData.email}
+          onChange={handleChange} />
+        </Form.Group>
+        
+        <Form.Group className="mb-3" controlId="pinCode">
+          <Form.Label>Pin Code</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter pin code"
+            name="pinCode"
+            value={formData.pinCode}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="state">
+          <Form.Label>State</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter state"
+            name="state"
+            value={formData.state}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="city">
+          <Form.Label>City</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter city"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="houseNo">
+          <Form.Label>House No./Building Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter house no./building name"
+            name="houseNo"
+            value={formData.houseNo}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="area">
+          <Form.Label>Area/Colony/Society Details</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter area/colony/society details"
+            name="area"
+            value={formData.area}
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <div className="button-container"> {/* Apply centering styles */}
+          <Button className='mysubmit' variant="primary" type="submit" onClick={handleClick2}>
+            Confirm Order
+          </Button>
+        </div>
+      </Form>
+      </div>
+     
+      <div className='order' style={{ display:  isOrder ? 'block' : 'none' }}>
+          {/* <h2>Order Details</h2> */}
+      <div className="order-summary">
+          <h3>Order Summary</h3>
+        
+        <p>Quantity : {quantity}</p>
+        <p>Product Price: ${product.price}</p>
+        <p>Delivery Charges: ${deliveryCharges}</p>
+        <p>Discount: ${discount}</p>
+        {<p>GST ({gstRate}%): ${gstAmount.toFixed(2)}</p>}
+        { <p>Total Price Including GST: ${totalPrice}</p> }
+        <div className="button-container"> {/* Apply centering styles */}
+          <Button className='mysubmit' variant="primary" type="submit" onClick={handlePlaceOrderClick}>
+            Place Order
+          </Button>
+          <ConfirmationModal show={showConfirmationModal} handleClose={() => setShowConfirmationModal(false)} />
 
-        <NavLink
-                exact
-                to="/contact"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              ></NavLink>
+        </div>
+
+      </div> 
+    </div>
+   
+  </div>
+ 
         </>
     );
 };

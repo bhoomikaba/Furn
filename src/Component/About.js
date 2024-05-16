@@ -2,6 +2,7 @@ import React from 'react';
 import '../Component_CSS/About.css';
 import found_2 from '../image/Found_2.jpg';
 import sign from '../image/sign.png';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -15,7 +16,7 @@ const About = () => {
           pulvinar est, sed porta justo nunc non lorem. Aenean eu bibendum lorem.
         </p>
         <img className="owner-signature" src={sign} alt="Owner's Signature" />
-        <button className="our-story-btn">Our Story</button>
+       {/* <Link to = "/About"><button className="our-story-btn">Our Story</button></Link>  */}
       </div>
       
       <div className="about-us-image">

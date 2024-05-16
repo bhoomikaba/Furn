@@ -31,23 +31,23 @@ export default function Sofa() {
 
     const calculatePrice = () => {
         if (selectedProduct) {
-            return parseFloat(selectedProduct.price.slice(1)) * quantity;
+            return parseFloat(selectedProduct.price.slice(0)) * quantity;
         }
         return 0;
     };
 
     const products = [
-        { id: 1, image: sofa10, name: 'Timeless Comfort Couch', price: '$123.0', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+        { id: 1, image: sofa10, name: 'Timeless Comfort Couch', price: '123.0', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
-        { id: 2, image: sofa4, name: 'Urban Elegance Loveseat', price: '$111.11',description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+        { id: 2, image: sofa4, name: 'Urban Elegance Loveseat', price: '111.11',description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
-        { id: 3, image: sofa12, name: 'Luxury Lounge Seating', price: '$1207.03', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+        { id: 3, image: sofa12, name: 'Luxury Lounge Seating', price: '1207.03', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
-        { id: 4, image: sofa6, name: 'Plush Lounge Settee', price: '$1995.0', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+        { id: 4, image: sofa6, name: 'Plush Lounge Settee', price: '1995.0', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
-        { id: 5, image: sofa11, name: 'Velvet Dream Sofa', price: '$20.00', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
+        { id: 5, image: sofa11, name: 'Velvet Dream Sofa', price: '20.00', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room' },
 
-        { id: 6, image: sofa13, name: 'Cozy Corner Charms', price: '$77.77', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room'}
+        { id: 6, image: sofa13, name: 'Cozy Corner Charms', price: '77.77', description: 'Urban elegance Loveseat Serta Monroe Queen Size Convertible Sleeper Sofa', brand: 'Urban Living', ass: 'Yes', mat : 'wooden', col: 'LightCyan', collection: 'Avnta', Dim: 'H 84 x W 198 x D 81 ( In Centimeters)', rat: '4.5', war:'3 Year', weight: '38 kg', wec: '4P', sel: 'Johnson & Johnson Brother"S ', room: 'Living Room'}
 
     ];
 
@@ -71,17 +71,11 @@ export default function Sofa() {
                                     </a>
                                     <h2>
                                         {product.name}
-                                        <small>{product.price}</small>
+                                        <small> ${product.price}</small>
                                     </h2>
                                     
                                 </div>
-                                <div className="card-flap flap1">
-                                    <div className="card-flap flap2">
-                                        <div className="card-actions">
-                                            <a href="/" className="btn">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
+                              
                             </div>
                         ))}
                     </div>
@@ -97,15 +91,6 @@ export default function Sofa() {
                     calculatePrice={calculatePrice}
                 />
             )}
-
-{selectedProduct && (
-                <RegistrationForm 
-                    
-                    quantity={quantity}
-                   
-                />
-            )}
-
         </div>
     );
 }

@@ -7,12 +7,10 @@ import OrderDetailsPage from './OrderDetailsPage';
 import Sofa from '../Shop/Sofa'
 
 
-export default function RegistrationForm( {quantity})
+export default function RegistrationForm( {quantity, orderedItems, totalPrice})
 
 {
 
- 
-   
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -31,9 +29,6 @@ export default function RegistrationForm( {quantity})
   const gstAmount = 2000; 
 
  
-  
-
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,8 +47,7 @@ export default function RegistrationForm( {quantity})
 
   return (
     <div className="container2">
-      <h2>Registration Form</h2>
-      <h2>{quantity}</h2>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="firstName">
           <Form.Label>First Name</Form.Label>
@@ -150,24 +144,24 @@ export default function RegistrationForm( {quantity})
         </Button>
       </Form>
 
-      <div className='order'>
+      {/* <div className='order'>
       <h2>Order Details</h2>
       <div className="order-summary">
         <h3>Order Summary</h3>
         <ul>
-          {/* {orderedItems.map((item, index) => (
+          {{orderedItems.map((item, index) => (
             <li key={index}>
               {item.name}: {item.quantity} x ${item.price} = ${item.quantity * item.price}
             </li>
-          ))} */}
+          ))} }
         </ul>
-        {/* <p>Total Price: ${totalPrice}</p> */}
+        { <p>Total Price: ${totalPrice}</p>}
         <p>Delivery Charges: ${deliveryCharges}</p>
         <p>Discount: ${discount}</p>
-        {/* <p>GST ({gstRate}%): ${gstAmount.toFixed(2)}</p>
-        <p>Total Price Including GST: ${(totalPrice + gstAmount + deliveryCharges - discount).toFixed(2)}</p> */}
+        {<p>GST ({gstRate}%): ${gstAmount.toFixed(2)}</p>}
+        <p>Total Price Including GST: ${(totalPrice + gstAmount + deliveryCharges - discount).toFixed(2)}</p>
       </div>
-    </div>
+    </div> */}
 
     </div>
     )

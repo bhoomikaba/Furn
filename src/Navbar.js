@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Component_CSS/Navbar.css";
 import { CodeIcon, HamburgetMenuClose, HamburgetMenuOpen } from "./Icons.js";
 import n__logo from './image/n__logo.png';
@@ -46,15 +46,15 @@ function NavBar() {
 
             <li className="nav-item">
       <div className="dropdown">
-        <NavLink
+        <Link
           exact
-          to="/Product"
+         
           activeClassName="active"
           className="nav-links"
           onClick={handleClick}
         >
           Shop
-        </NavLink>
+        </Link>
         <div className="dropdown-content">
           
           <NavLink exact to="/Lamp" onClick={handleClick}>LAMP</NavLink>

@@ -6,6 +6,7 @@ import bed2 from '../image/beds/bed2.jpeg';
 import sofa12 from '../image/sofas/sofa12.jpeg';
 import table3 from '../image/table/table3.jpeg';
 import table6 from '../image/table/table6.jpeg';
+import { Link } from 'react-router-dom';
 
 const Card = () => {
     const handleCardClick = (e) => {
@@ -47,7 +48,7 @@ const Card = () => {
             <div className="cards">
                 <div className="card" onClick={handleCardClick}>
                     <div className="card__image-holder">
-                        <img className="card__image" src={chair1} alt="mountain" />
+                    <Link to= "/Chair"> <img className="card__image" src={chair1} alt="chair" /></Link>
                     </div>
                     <div className="card-title">
                         <a href="#" className="toggle-info btn">
@@ -71,7 +72,8 @@ const Card = () => {
 
                 <div className="card" onClick={handleCardClick}>
                     <div className="card__image-holder">
-                        <img className="card__image" src={bed2} alt="field" />
+                        <Link to= "/bed"><img className="card__image" src={bed2} alt="field" /></Link>
+                        
                     </div>
                     <div className="card-title">
                         <a href="#" className="toggle-info btn">
@@ -95,7 +97,8 @@ const Card = () => {
 
                 <div className="card" onClick={handleCardClick}>
                     <div className="card__image-holder">
-                        <img className="card__image" src={sofa12} alt="water" />
+                    <Link to= "/Sofa"><img className="card__image" src={sofa12} alt="water" /></Link>
+                        
                     </div>
                     <div className="card-title">
                         <a href="#" className="toggle-info btn">
@@ -119,7 +122,8 @@ const Card = () => {
 
                 <div className="card" onClick={handleCardClick}>
                     <div className="card__image-holder">
-                        <img className="card__image" src={bed1} alt="water" />
+                        <Link to= "bed"><img className="card__image" src={bed1} alt="water" /></Link>
+                        
                     </div>
                     <div className="card-title">
                         <a href="#" className="toggle-info btn">
@@ -143,7 +147,8 @@ const Card = () => {
 
                 <div className="card" onClick={handleCardClick}>
                     <div className="card__image-holder">
-                        <img className="card__image" src={table3} alt="water" />
+                        <Link to = "Table"> <img className="card__image" src={table3} alt="table" /></Link>
+                       
                     </div>
                     <div className="card-title">
                         <a href="#" className="toggle-info btn">
@@ -167,7 +172,7 @@ const Card = () => {
 
                 <div className="card" onClick={handleCardClick}>
                     <div className="card__image-holder">
-                        <img className="card__image" src={table6} alt="water" />
+                        <Link to ="/Table"><img className="card__image" src={table6} alt="water" /></Link>
                     </div>
                     <div className="card-title">
                         <a href="#" className="toggle-info btn">

@@ -319,7 +319,6 @@ opacity: 1;
 .pr {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .pr div {
@@ -386,7 +385,6 @@ opacity: 1;
 }
 
 .spec .image_container {
-
   display: flex;
   align-items: center;
   margin: 15px;
@@ -463,6 +461,8 @@ opacity: 1;
     color: black;
     font-size: 20px;
   }
+
+  
   
 
 

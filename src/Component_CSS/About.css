@@ -85,6 +85,10 @@
       max-width: 50%;
       animation: fadeInRight 5s ease forwards;
     }
+
+    .owner-signature  {
+      margin-bottom: 50px;
+    }
   }
   
   @keyframes fadeInLeft {
@@ -113,7 +117,7 @@
     height: 100px;
     width: 200px;
     margin-top: 20px;
-    margin-left: 0;
+    margin-left: 350px;
   }
   
   .our-story-btn {
@@ -136,8 +140,6 @@
     letter-spacing: 5px;
     border-bottom: 3px solid red;
     font-size: 18px;
-    
-    
   }
 
   @media (max-width :768px) {
